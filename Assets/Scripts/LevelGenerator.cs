@@ -50,6 +50,10 @@ public class LevelGenerator : MonoBehaviour {
 
 
 	#region Start method initilize coroutine
+
+	void Awake(){
+		Instantiate(player, new Vector3(0,0,0), Quaternion.identity);
+	}
 	void Start()
 	{
 		environment = new GameObject().transform;
@@ -131,7 +135,6 @@ public class LevelGenerator : MonoBehaviour {
 	void CreateTile(int tileIndex)
 	{
 		
-
 		if (!createdTiles.Contains(transform.position))
 		{
 			GameObject tileObject;
@@ -203,10 +206,8 @@ public class LevelGenerator : MonoBehaviour {
 
 	void SpawnObjects()
 	{
-		//Instantiate(player, createdTiles[Random.Range(0, createdTiles.Count)], Quaternion.identity);
         player.transform.position = createdTiles[Random.Range(0, createdTiles.Count)];
         player.transform.rotation = Quaternion.identity;
-
 
         for (int i = 0; i < enemyAmount; i++)
 		{
