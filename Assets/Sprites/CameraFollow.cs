@@ -17,6 +17,7 @@ public class CameraFollow : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player");
         targetPos = transform.position;
     }
 
